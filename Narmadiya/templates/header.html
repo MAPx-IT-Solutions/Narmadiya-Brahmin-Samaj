@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <title>नार्मदीय ब्राह्मण समाज </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- bootstrap files -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<!-- js/css files -->
+
+<link rel="stylesheet" href='{% static "style.css"%}'>
+<link rel="stylesheet" href='{% static "responsive.css"%}'>
+
+<!-- google fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Eczar&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap" rel="stylesheet">
+
+<!-- font-awesome icons -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="headcontainer">
+        <a href="#">नार्मदीय ब्राह्मण <br> समाज</a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light nav-menu">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse more-size" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="/">मुख्य प्रष्ठ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news">मुख्य समाचार एवं पत्रिकाएं</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutsociety">समाज के बारे मे </a>
+            </li>
+            <li class="nav-item activenav">
+              <a class="nav-link" href="/religious">धार्मिक</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contactus">संपर्क</a>
+            </li>
+            <li class="nav-item dropdown">
+              {% if user.is_authenticated %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{request.user.first_name}} {{request.user.last_name}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="nav-link change" href="/handlelogout">logout</a>
+              
+          </li>
+        </ul>
+          
+        </div>
+            {% else %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+           
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           
+              <a class="nav-link change" href="/login">login</a>
+             
+              <a class="nav-link" href="/register">register</a>
+              
+          </li>
+        </ul>
+          
+        </div>
+        {% endif %}
+      </nav>
+      </body>
+      </html>
+    

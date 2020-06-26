@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <title>नार्मदीय ब्राह्मण समाज </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- bootstrap files -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<!-- js/css files -->
+
+<link rel="stylesheet" href='{% static "style.css"%}'>
+<link rel="stylesheet" href='{% static "responsive.css"%}'>
+
+<!-- google fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Eczar&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap" rel="stylesheet">
+
+<!-- font-awesome icons -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="headcontainer">
+        <a href="#">नार्मदीय ब्राह्मण <br> समाज</a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light nav-menu">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse more-size" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="/">मुख्य प्रष्ठ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news">मुख्य समाचार एवं पत्रिकाएं</a>
+            </li>
+            <li class="nav-item activenav">
+              <a class="nav-link" href="/aboutsociety">समाज के बारे मे </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/religious">धार्मिक</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contactus">संपर्क</a>
+            </li>
+            <li class="nav-item dropdown">
+              {% if user.is_authenticated %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{request.user.first_name}} {{request.user.last_name}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="nav-link change" href="/handlelogout">logout</a>
+              
+          </li>
+        </ul>
+          
+        </div>
+            {% else %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+           
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           
+              <a class="nav-link change" href="/login">login</a>
+             
+              <a class="nav-link" href="/register">register</a>
+              
+          </li>
+        </ul>
+          
+        </div>
+        {% endif %}
+      </nav>
+<div class="vistar">
+  <h5 class="section-title h1">समाज विस्तार</h5>
+  <div class="shlok">
+  <p >ये विप्रा द्रविडा ह्वाचि राष्ट्रात सौराष्ट्र देशे स्थिता ।<br>
+    आहूता प्रणवेश्वरस्यनिकटे यग्ये बुधा रित्विजः ।।<br>
+    लब्धा तै र्वसुधा धिपाघ वसुधा श्रीजामदग्य यर्जिता ।<br>
+    ते रेवा तट वासिनश्च कथिताः श्री नार्मदेय द्विजाः ।।</p>
+  </div>
+<div class="row part">
+    <div class="col-md-4">
+      <span class="caption"><img src='{% static "img/somnath2.jpg"%}' width="400px" height="200px"> सोमनाथ ज्योतिर्लींग सौरास्ट्र, गुजरात</span>
+      
+        </div>
+        <div class="col-md-8">
+          <p>हमारे पूर्वज कालांतर में द्रविड( तमिलनाडु) प्रांत में रहते थे पश्यात वे सौराष्ट्र गुजरात) आ गए ,नर्मदिया ब्राह्मणों ने भी अनूदित नारामदेव सोमनाथ मंदिर के पुजारियों के वंशज हैं, 
+            जिन्हें गुजरात से मध्यप्रदेश में स्थानांतरित करने के लिए मजबूर किया गया था, वे नर्मदा नदी के किनारे बसे हैं। 
+            उनका प्रवासन क्रूर इस्लामी आक्रमणकारी महमूद गजनी द्वारा सोमनाथ मंदिर के किलों और अपवित्रता के कारण है।
+             इसके सदस्य खुद को नर्मदा नदी का मानसपुत्र मानते हैं। नरमदेवों को पंचद्वीप ब्राह्मण माना जाता है।
+              वे लगभग 20 गोत्र के हैं और वाजसनेयी शाखा के अंतर्गत एक उप-शाखा, मध्यानंदिनी के शुक्ल यजुर्वेद के अनुयायी हैं। इनमें से ज्यादातर मध्य प्रदेश के पांच जिलों यानी हरदा, खंडवा, बड़वानी, धार और खरगोन में केंद्रित हैं। क्षेत्रीय संबद्धता के आधार पर नरदेव को भुवनैया (हरदा, होशंगाबाद), निमाड़ी (खंडवा, खरगोन, बड़वानी, धार) और मालवी के रूप में विभाजित किया गया है। नरमदेव आम तौर पर खुद को दूसरे क्षेत्रों के लोगों के साथ किसी भी प्रकार के संबंध स्थापित करने के लिए मना करते हैं, यानी निवाडी या मालवी के साथ भुवन्या या इसके विपरीत, हालांकि वे एंडोगैमस नहीं हैं। आंकड़ों से पता चलता है कि कुछ लोग अपनी क्षेत्रीय सीमा पार कर लेते हैं।</p>
+          </div>
+</div>      
+
+<h4>नार्मदिय ब्राह्मणो की उतपत्ती</h4>
+<div class="row part">
+  <div class="col-md-8">
+    <p>श्री राम की वंश परंपरा से पूर्व इसी परंपरा में सार्वभौम चक्रवर्ती सम्राट मान्धाता हुए उन्होने एक बार ऊँकारेश्वर में पावन नर्मदा के उत्तर तट पर एक विशाल यग्य किया
+      उस आयोजन में पूरे भूमंडल से विद्वान ब्राह्मण पधारे सभी ने विधिवत आयोजन संपन्न कराया
+      सभी विप्रों को बहुत रत्न इत्यादि दिये गये ब्राह्मणों का आशीर्वाद लिया गया
+      तत्पश्यात ब्राह्मण प्रस्थान करने लगें
+      सौराष्ट्र से आए ब्राह्मण भी जाने की तैयारी में थे
+      तभी मांधाता ने उनके पास जाकर निवेदन किया कि आप लोग यहि निवास करें
+      मै आपकि जीविका का साधन दूँगा
+      नर्मदा के तट पर ज्योतिर्लिंग ऐसे स्थान से प्रसन्न हो उन्होने निवेदन स्वीकार कर लिया
+      ब्राह्मण वही रहकर निराहार तपस्या करने लगे
+      उनकी इच्छा माँ नर्मदा का दर्शन करने की थी
+      कठीन तप करने के बाद भी जब माँ का दर्शन नही हुआ
+      तो मन में विचार किया कि हम लोग इसी जल में अपने प्राण त्याग देगें और सभी कूद गये
+      माँ नर्मदा ने मन मे विचार किया ये ब्राह्मण मेरा दर्शन ना मिलने के कारण प्राण त्याग रहे है
+      
+      माँ ने उन ब्राह्मणों को बाहर निकाला सभी मूर्छित हो चुके थे
+      माँ ने जैसे ही अपना स्पर्श किया वह सभी जीवित हो गये
+      ब्राह्मणों ने देखा कि सामने मकर वाहिनी खडी है सभी ने प्रणाम किया
+      माँ रेवा ने कहा कि तुम मृत्यु को प्राप्त हो चुके थे मैने तुम्हे जीवन दान दिया है इसलिए आज से तुम नार्मदेय ) नर्मदा द्वारा प्रदत्त
+      नर्मदा जी अंतर्ध्यान हो गई तब से ही नार्मदेय कहलाने लगे बाद मे नार्मदीय शब्द जुडा।</p>
+    </div>
+
+  <div class="col-md-4">
+    <span class="caption"><img src='{% static "img/omkareshwar.jpg"%}' width="400px" height="200px"> (नर्मदा किनारे)ममलेश्वर ज्योतिर्लींग ओमकारेश्वर, म.प्र.</span>
+      
+    
+      </div>
+      
+</div>  
+</div>
+
+
+
+<div class="container">
+  <h5 class="section-title h1 contact">सभी गौत्र, उपनाम और प्रवर </h5>
+  <p style="text-align: center; padding-bottom: 10px;">प्रत्येक नरमदेव पुरुष (या अविवाहित महिला) की पहचान उसके संबंधित पैतृक परिवार के नाम से होती है। एक विवाहित महिला अपने पति के पारिवारिक नाम को अपनाती है। प्रत्येक परिवार एक गोत्र और प्रवर से संबद्ध है। गोत्र नाम प्राचीन सिद्धांतों में परिवार के ज्ञान प्राप्ति और विशेषज्ञता की पारंपरिक शैली को प्रदर्शित करता है।  
+    प्रत्येक गोत्र में कई उप-वर्ग हैं जिन्हें प्रवर के नाम से जाना जाता है।</p>
+  <div class="shlok">
+    <p >गौत्रान्काश्यप कौशिक वत्सवच्छस मुनि शांडिल्य चांद्रायणौ।<br>
+      साकाल्यत्रि वशिष्ठ गार्गव तथा मार्कन्डय कौडिन्यकं ।।<br>
+      गार्गव भार्गव मुद्गलोपमन्यु पैठिन्य कात्यायनौ ।<br>
+      भारद्वाज पराशरेण कथितं श्री नार्मदेय द्विजा अस्तु ।।</p>
+
+    
+    </div>
+    <div class="row ">
+
+      <div class="col-md-8">
+        <table id="myTable">
+          <tr class="header">
+            <th>नार्मदीय ब्राह्मण समाज के 20 गौत्र</th>
+            <th>उनके प्रवर</th>
+          </tr>
+          <tr>
+            <td>अत्रि</td>
+            <td>आत्रेय, आर्चनानस, श्यावाश्‍व</td>
+            
+          </tr>
+          <tr>
+            <td>कश्यप</td>
+            <td>कश्यप, असित, दैवल </td>
+          </tr>
+          <tr>
+            <td>साकल्य</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>पाराशर</td>
+            <td>वाशिष्ठ, शाक्त्य, पाराशर्य</td>
+          </tr>
+          <tr>
+            <td>वशिस्ठ</td>
+            <td>वाशिष्ठ, शाक्त्य, पाराशर्य</td>
+          </tr>
+          <tr>
+            <td>भार्गव</td>
+            <td>भार्गव, च्यावन, आप्नवान्, और्व, जामदग्न्य</td>
+          </tr>
+          <tr>
+            <td>उपमन्यू</td>
+            <td>वाशिष्ठ, ऐन्द्रप्रमद, आभरद्वसव्य</td>
+          </tr>
+          <tr>
+            <td>कौंण्डिन्य</td>
+            <td>वाशिष्ठ, मैत्रावरुण, कौण्डिन्य</td>
+          </tr>
+          <tr>
+            <td>मार्कण्डेय</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>मौदगल्य</td>
+            <td>मौद्गल्य, अंगिरा, बृहस्पति</td>
+          </tr>
+          <tr>
+            <td>कात्यायन</td>
+            <td>वैश्वामित्र, कात्य, कील</td>
+          </tr>
+          <tr>
+            <td>भारद्वाज</td>
+            <td>आंगिरस्, बार्हस्पत्य, भारद्वाज, शौङ्ग, शैशिर</td>
+          </tr>
+          <tr>
+            <td>वच्छस</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>वत्स</td>
+            <td>भार्गव, च्यावन, आप्नवान, और्व, जामदग्न्य</td>
+          </tr>
+          <tr>
+            <td>पैठिन्य</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>कौशिक</td>
+            <td>वैश्वामित्र, आश्मरथ्य, वाघुल</td>
+          </tr>
+          <tr>
+            <td>गार्गेय</td>
+            <td>आंगिरस, गार्ग्य, शैन्य</td>
+          </tr>
+          <tr>
+            <td>चन्द्रायण</td>
+            <td>आंगिरस, गौरुवीत, सांकृत्य</td>
+          </tr>
+          <tr>
+            <td>शांडील्य</td>
+            <td>शांडिल्य, असित, देवल </td>
+          </tr>
+          <tr>
+            <td>गर्ग</td>
+            <td>आंगिरस, बार्हस्पत्य, भारद्वाज, गार्ग्य, शैन्य</td>
+          </tr>
+          </table>
+        </div> 
+      <div class="col-md-4">
+        <table id="myTable">
+          <tr class="header">
+            <th>उपनाम</th>
+          </tr>
+          <tr>
+            <td>अत्रे</td>
+          </tr>
+          <tr>
+            <td>पाराशर</td>
+          </tr>
+          <tr>
+            <td>गॉवशिन्दे(गोशिन्दे के रूप में भी)</td>
+          </tr>
+          <tr>
+            <td>उपाध्याय</td>
+          </tr>
+          <tr>
+            <td>बरगले</td>
+          </tr>
+          <tr>
+            <td>शांडिल्य</td>
+          </tr>
+          <tr>
+            <td>शकरगाये</td>
+          </tr>
+          <tr>
+            <td>डोंगरे</td>
+          </tr>
+          <tr>
+            <td>बिलोरे</td>
+          </tr>
+          <tr>
+            <td>शर्मा</td>
+          </tr>
+          <tr>
+            <td>नेगी</td>
+          </tr>
+          <tr>
+            <td>कोतवाल</td>
+          </tr>
+          <tr>
+            <td>काशिव</td>
+          </tr>
+          <tr>
+            <td>पारे</td>
+          </tr>
+          <tr>
+            <td>सकलोत</td>
+          </tr>
+          <tr>
+            <td>सिटोक</td>
+          </tr> 
+          <tr>
+            <td>जोशी</td>
+          </tr>
+           <tr>
+            <td>उप्रीत</td>
+          </tr>
+           <tr>
+            <td>सदा</td>
+          </tr>
+          <tr>
+            <td>गुवा चतुर्वेदी आदि।</td>
+          </tr>
+          </table>
+          </div>
+          
+    </div>
+  
+</div>
+
+
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+
+    <!-- Footer -->
+    <footer class="page-footer ">
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5 more-size">
+    
+        <!-- Grid row -->
+        <div class="row mt-3 more-size">
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+    
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">नार्मदीय ब्राह्मण समाज </h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+              consectetur
+              adipisicing elit.</p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a href="/">Home</a>
+            </p>
+            <p>
+              <a href="#!">Become an Affi</a>
+            </p>
+            <p>
+              <a href="#!">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!">Log Out</a>
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+                        <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+            <p>
+              <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Follow </h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                  <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                      <i class="fa fa-facebook"></i>
+                  </a>
+              </li>
+              <li class="list-inline-item">
+                  <a class="social-icon text-xs-center" target="_blank" href="#">
+                      <i class="fa fa-instagram"></i>
+                  </a>
+              </li>
+          </ul>
+          <p class="devlop">Developed By : TechVerticle.com <br>
+              Contact Us : 7089986702 | 7694969509 | 8871714038 </p>
+    
+          
+    </div>
+        </div>
+        <!-- Grid row -->
+    
+      </div>
+      <!-- Footer Links -->
+    
+      <!-- Copyright -->
+      <div class="footer-copyright text-center">© 2020 Copyright |
+        <a href="#"> narmadiyabrahminsamaj.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    
+    
+    
+    </body>
+    </html>
+    

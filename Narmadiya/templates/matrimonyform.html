@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <title>नार्मदीय ब्राह्मण समाज </title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- bootstrap files -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!-- js/css files -->
+
+<link rel="stylesheet" href='{% static "style.css"%}'>
+<link rel="stylesheet" href='{% static "responsive.css"%}'>
+<link rel="stylesheet" href='{% static "matrimonyform.css"%}'>
+
+
+<!-- google fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Eczar&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap" rel="stylesheet">
+
+<!-- font-awesome icons -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="matrimonyform.css">
+
+
+
+
+</head>
+
+<body>
+    <div class="headcontainer">
+        <a href="#">नार्मदीय ब्राह्मण <br> समाज</a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light nav-menu">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse more-size" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">मुख्य प्रष्ठ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news">मुख्य समाचार एवं पत्रिकाएं</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutsociety">समाज के बारे मे </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/religious">धार्मिक</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contactus">संपर्क</a>
+            </li>
+          <li class="nav-item dropdown">
+            {% if user.is_authenticated %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{request.user.first_name}} {{request.user.last_name}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="nav-link change" href="/handlelogout">logout</a>
+              
+          </li>
+        </ul>
+          
+        </div>
+            {% else %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+           
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           
+              <a class="nav-link change" href="/login">login</a>
+             
+              <a class="nav-link" href="/register">register</a>
+              
+          </li>
+        </ul>
+          
+        </div>
+        {% endif %}
+      </nav>
+
+      
+<!-- marquee -->
+<marquee class="marqueetag" width="100%" direction="left" style="margin-bottom: 10px;">
+ हमारा उद्देश्‍य है कि आज के इस अनमोल समय में विवाह योग्‍य लडके एवं ल‍डकियों का बायोडाटा एक स्‍थान पर एकत्रित करना हैं, आपका महत्‍वपुर्ण डाटा यहां पुर्ण रूप से सुरक्षित है।</marquee>
+<!-- marquee -->
+
+<!-- multi stap form start-->
+{% if user.is_authenticated %}
+<div class="container">
+  <div class="stepwizard">
+      <div class="stepwizard-row setup-panel">
+          <div class="stepwizard-step">
+              <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+              <p>Step 1</p>
+          </div>
+          <div class="stepwizard-step">
+              <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+              <p>Step 2</p>
+          </div>
+          <div class="stepwizard-step">
+              <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+              <p>Step 3</p>
+          </div>
+      </div>
+  </div>
+ 
+  <form role="form" enctype="multipart/form-data" method='POST'>{% csrf_token %}
+      <div class="row setup-content" id="step-1">
+          <div class="col-xs-12">
+              <div class="col-md-12">
+                  <h3> Step 1</h3>
+                  <h3 class="text-center" style="margin-bottom: 50px;">Basic Details</h3>
+                  <div class="form-group">
+                    
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">किसके द्वारा बनायी</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="radio" id="Self" name="Profile" value="स्‍वयं" >
+                        <span for="self" class="">स्‍वयं</span>
+                        <input type="radio" id="Parents" name="Profile" value="रिश्‍तेदार">
+                        <span for="Realitive">रिश्‍तेदार</span>
+                        <input type="radio" id="Friend" name="Profile" value="मित्र">
+                        <span for="Friend">मित्र</span>
+                        <input type="radio" id="Other" name="Profile" value="अन्‍य">
+                        <span for="Other">अन्‍य</span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">नाम</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input  maxlength="100" name='fullname' type="text" required="required" class="form-control" placeholder="पूरा नाम"  />
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">पिता का नाम</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input  maxlength="100" name='fathername' type="text" required="required" class="form-control" placeholder="पिता का नाम"  />
+                      </div>
+                     
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">माता का नाम</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input maxlength="100" name='mothername' type="text" required="required" class="form-control" placeholder="माता का नाम" />
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">लिंग</label><br>
+                      </div>
+                      <div class="col-md-9">
+                        
+                        <input type="radio" id="male" name="gender" value="पुरूष">
+                        <span for="male">पुरूष</span>
+                        <input type="radio" id="female" name="gender" value="महिला">
+                        <span for="female">महिला</span>
+                      
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">फाेटो</label><br>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="file"  id="myFile" name="filename" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">जन्‍म दिनांक एवं समय</label><br>
+                      </div>
+                      <div class="col-md-6" >
+                        <input type="date" style="width: 100%;"class="form-control"  id="myDate" name="dateofb" required>
+                        
+                      </div>
+                      <div class="col-md-3" >
+                        <input type="time" style="width: 100%;  "class="form-control" id="myTime" name="timeofb" required>
+                        
+                      </div>
+                      
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">जन्‍म स्थान </label><br>
+                      </div>
+                      <div class="col-md-9" >
+                        <input type="text" style="width: 100%;"class="form-control"  id="myPlace" name="placeofb" required>
+                        
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">वैवाहिक स्थिति</label><br>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="radio" id="Unmarried" name="Marital" value="अविवाहित">
+                        <span for="Unmarried">अविवाहित</span>
+                        <input type="radio" id="Widow" name="Marital" value="विधवा/विधुर">
+                        <span for="Widow">विधवा / विधुर </span>
+                        <input type="radio" id="divoroed" name="Marital" value="तलाकशुदा">
+                        <span for="divoroed">तलाकशुदा</span>
+                      </div>
+                                        
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">ऊंचाई</label><br>
+                      </div>
+                      <div class="col-md-9">
+                        <input maxlength="10" type="text" name='height' required="required" class="form-control" placeholder="ऊंचाई" />
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">भाई/बहन की संख्या</label><br>
+                      </div>
+                      <div class="col-md-9">
+                        <input maxlength="10" type="number" name='bhaibahankisankya' required="required" class="form-control" placeholder="संख्या" />
+                      </div>
+                      
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">मामा का नाम </label><br>
+                      </div>
+                      <div class="col-md-9">
+                        <input maxlength="10" type="text" name='mamaname' required="required" class="form-control" placeholder="मामा का नाम" />
+                      </div>
+                      
+                    </div>
+                  
+
+               
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label for="Tongue">मातृ भाषा </label>
+                      </div>
+                      <div class="col-md-9 ">
+                        <select name="MTongue"class="form-control"  id="Tongue" required>
+                          <option value="select">Select</option>
+                          <option value="हिन्‍दी">हिन्‍दी</option>
+                          <option value="english">English</option>
+                          <option value="गुजराती">गुजराती</option>
+                          <option value="मराठी">मराठी</option>
+                          <option value="अन्‍य">अन्‍य</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                   
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label for="mobile">मोबाइल नम्‍बर</label>
+                      </div>
+                      <div class="col-md-3">
+                        <input minlength="10" maxlength="10" name='mobno' type="tel" required="required" class="form-control" placeholder="Mobile Number"  />
+                      </div>
+                      <div class="col-md-3">
+                        <input minlength="10" maxlength="10" name='altmob' type="tel"  class="form-control" placeholder="Alternet Number"  />
+                      </div>
+                      <div class="col-md-3">
+                        <input minlength="10" maxlength="10" name='fmob' type="tel" required="required" class="form-control" placeholder="Parent Number"  />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label for="Email">Email</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input type="email" name='email' required="required" class="form-control" placeholder="Email Address"  />
+                      </div>
+                      
+                    </div>
+                  </div>
+              </div> 
+                       <button class="btn btn-primary nextBtn btn-lg pull-right mb-4" type="button" style="background-color: orangered;" >Next</button>
+          </div>
+      </div>
+    
+      <div class="row setup-content" id="step-2">
+          <div class="col-xs-12">
+              <div class="col-md-12">
+                  <h3> Step 2</h3>
+                  <h3 class="text-center" style="margin-bottom: 50px;">Complete Details</h3>
+                  <div class="form-group">
+                      <h3>शिक्षा और पेशा</h3>
+                          <div class="row">
+                              <div class="col-md-3">
+                                  <label for="Education">उच्‍चतम शिक्षा</label>
+                              </div>
+                              <div class="col-md-9">
+                                <input  maxlength="100" type="text" name='qualification'  class="form-control" placeholder="उच्‍चतम शिक्षा"  />
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-3">
+                                  <label for="job">नौकरी या व्‍यापार</label>
+                              </div>
+                              <div class="col-md-9">
+                                <input  maxlength="100" type="text" name='job'  class="form-control" placeholder="नौकरी या व्‍यापार"  />
+                              </div>
+                          </div>                  
+                  
+                      <h3>धार्मिक जानकारी</h3>
+                  
+                          <div class="row">
+                    <div class="col-md-3">
+                      <label class="control-label">नक्षत्र</label>
+                    </div>
+                    <div class="col-md-9">
+                      <dd>
+                        <select id="star" name="star" class="select2_single select2-hidden-accessible" tabindex="-1" onchange="autotab('','raasi','select');" aria-hidden="true">
+                        <option value="0" selected="" title="--- Select ---" alt="--- Select ---">--Select--</option>
+                        <option value="अश्विनी" title="Aswini" alt="Aswini">अश्विनी</option>
+                        <option value="भरणी" title="Bharani" alt="Bharani">भरणी</option>
+                        <option value="कृतिका" title="Kruthiga" alt="Kruthika">कृतिका</option>
+                        <option value="रोहिणी" title="Rohini" alt="Rohini">रोहिणी</option>
+                        <option value="मृगशिरा" title="Mrigasira" alt="Mrigasira">मृगशिरा</option>
+                        <option value="आद्रा" title="Arudra" alt="Arudra">आद्रा</option>
+                        <option value="पुनर्वसु" title="Punarvasu" alt="Punarvasu">पुनर्वसु</option>
+                        <option value="पुष्‍य" title="Pushya" alt="Pushya">पुष्‍य</option>
+                        <option value="अश्‍लेषा" title="Asilesha" alt="Asilesha">अश्‍लेषा</option>
+                        <option value="मघा" title="Magha" alt="Magha">मघा</option>
+                        <option value="पुर्वा फाल्‍गुनी" title="Poorvaphalguni" alt="Poorvaphalguni">पुर्वा फाल्‍गुनी</option>
+                        <option value="उत्‍तरा फाल्‍गुनी" title="Uthiraphalguni" alt="Uthiraphalguni">उत्‍तरा फाल्‍गुनी</option>
+                        <option value="हस्‍त" title="Hastha" alt="Hastha">हस्‍त</option>
+                        <option value="चित्रा" title="Chitra" alt="Chitra">चित्रा</option>
+                        <option value="स्‍वाती" title="Swathi" alt="Swathi">स्‍वाती</option>
+                        <option value="विशाखा" title="Visaka" alt="Visaka">विशाखा</option>
+                        <option value="अनुराधा" title="Anuradha" alt="Anuradha">अनुराधा</option>
+                        <option value="ज्‍येष्‍ठा" title="Jyeshta" alt="Jyeshta">ज्‍येष्‍ठा</option>
+                        <option value="मुल" title="Mula" alt="Mula">मुल</option>
+                        <option value="पुर्वा षाढा" title="Poorvashada" alt="Poorvashada">पुर्वा षाढा</option>
+                        <option value="उत्‍तरा षाढा" title="Uthrashada" alt="Uthrashada">उत्‍तरा षाढा</option>
+                        <option value="श्रवण" title="Sravan" alt="Sravan">श्रवण</option>
+                        <option value="धनिष्‍ठा" title="Dhanishta" alt="Dhanishta">धनिष्‍ठा</option>
+                        <option value="शतभिषा" title="Shatataraka" alt="Shatataraka">शतभिषा</option>
+                        <option value="पुर्वा भद्रा" title="Poorvabhadra" alt="Poorvabhadra">पुर्वा भद्रा</option>
+                        <option value="उत्‍तरा भद्रा" title="Uthirabhadra" alt="Uthirabhadra">उत्‍तरा भद्रा</option>
+                        <option value="रेवती" title="Revathi" alt="Revathi">रेवती</option>							
+                        </select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" style="width: 112px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="11" aria-labelledby="select2-star-container"><span class="select2-selection__rendered" id="select2-star-container" title="--- Select ---"><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span><span id="namespan" class="errortxt"></span>
+                      </dd>
+                    </div>
+                          </div>
+                          <div class="row">
+                    <div class="col-md-3">
+                      <label class="control-label">राशि</label>
+                    </div>
+                    <div class="col-md-9">
+                      <dd>
+                        <select name="raasi" id="raasi" class="txtBox input select2_single select2-hidden-accessible" tabindex="-1" onchange="autotab('','manglik','group');" aria-hidden="true">
+                        <option value="0">--Select--</option>
+                        <option value="धनु (Sagittarius)">धनु (Sagittarius)</option>
+                        <option value="कन्‍या (Virgo)">कन्‍या (Virgo)</option>
+                        <option value="कर्क (Cancer)">कर्क (Cancer)</option>
+                        <option value="कुंभ (Aquarius)">कुंभ (Aquarius)</option>
+                        <option value="मकर (Capricorn)">मकर (Capricorn)</option>
+                        <option value="मीन (Pisces)">मीन (Pisces)</option>
+                        <option value="मेष (Aries)">मेष (Aries)</option>
+                        <option value="मिथुन (Gemini)">मिथुन (Gemini)</option>
+                        <option value="सिंह (Leo)">सिंह (Leo)</option>
+                        <option value="तुला (Libra)">तुला (Libra)</option>
+                        <option value="वृषभ (Taurus)">वृषभ (Taurus)</option>
+                        <option value="वृश्चिक (Scorpio)">वृश्चिक (Scorpio)</option>						
+                        </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 149px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="12" aria-labelledby="select2-raasi-container"><span class="select2-selection__rendered" id="select2-raasi-container" title="--Select--"><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></dd>
+                    </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-3">
+                              <label class="control-label">गौत्र</label>
+                            </div>
+                            <div class="col-md-9">
+                              <dd>
+                                <select name="gautra" id="raasi" class="txtBox input select2_single select2-hidden-accessible" tabindex="-1" onchange="autotab('','manglik','group');" aria-hidden="true">
+                                <option value="0">--Select--</option>
+                                <option value="अत्रि">अत्रि</option>
+                                <option value="कश्यप">कश्यप</option>
+                                <option value="साकल्य">साकल्य</option>
+                                <option value="पाराशर">पाराशर</option>
+                                <option value="वशिस्ठ">वशिस्ठ</option>
+                                <option value="भार्गव">भार्गव</option>
+                                <option value="उपमन्यू">उपमन्यू</option>
+                                <option value="उपमन्यू">उपमन्यू</option>
+                                <option value="मार्कण्डेय">मार्कण्डेय</option>
+                                <option value="मौदगल्य">मौदगल्य</option>
+                                <option value="कात्यायन">कात्यायन</option>
+                                <option value="भारद्वाज">भारद्वाज  </option>		
+                                <option value="वच्छस">वच्छस </option>
+                                <option value="वत्स">वत्स  </option>
+                                 <option value="पैठिन्य">पैठिन्य  </option>				
+                                <option value="कौशिक">कौशिक  </option>
+                                <option value="चन्द्रायण">चन्द्रायण  </option>
+                                <option value="शांडील्य">शांडील्य  </option>
+                                <option value="गर्ग">गर्ग </option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 149px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="12" aria-labelledby="select2-raasi-container"><span class="select2-selection__rendered" id="select2-raasi-container" title="--Select--"><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></dd>
+                            </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-md-3">
+                                      <label class="control-label">मामा गौत्र</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                      <dd>
+                                        <select name="mamaGautra" id="raasi" class="txtBox input select2_single select2-hidden-accessible" tabindex="-1" onchange="autotab('','manglik','group');" aria-hidden="true">
+                                        <option value="0">--Select--</option>
+                                        <option value="अत्रि">अत्रि</option>
+                                        <option value="कश्यप">कश्यप</option>
+                                        <option value="साकल्य">साकल्य</option>
+                                        <option value="पाराशर">पाराशर</option>
+                                        <option value="वशिस्ठ">वशिस्ठ</option>
+                                        <option value="भार्गव">भार्गव</option>
+                                        <option value="उपमन्यू">उपमन्यू</option>
+                                        <option value="उपमन्यू">उपमन्यू</option>
+                                        <option value="मार्कण्डेय">मार्कण्डेय</option>
+                                        <option value="मौदगल्य">मौदगल्य</option>
+                                        <option value="कात्यायन">कात्यायन</option>
+                                        <option value="भारद्वाज">भारद्वाज  </option>		
+                                        <option value="वच्छस">वच्छस </option>
+                                        <option value="वत्स">वत्स  </option>
+                                         <option value="पैठिन्य">पैठिन्य  </option>				
+                                        <option value="कौशिक">कौशिक  </option>
+                                        <option value="चन्द्रायण">चन्द्रायण  </option>
+                                        <option value="शांडील्य">शांडील्य  </option>
+                                        <option value="गर्ग">गर्ग </option>
+                                        </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 149px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="12" aria-labelledby="select2-raasi-container"><span class="select2-selection__rendered" id="select2-raasi-container" title="--Select--"><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></dd>
+                                    </div>
+                                          </div>
+                          <div class="row">
+                              <div class="col-md-3">
+                                  <label class="control-label">दोष</label>
+                              </div>
+                              <div class="col-md-9">
+                                  <select id="dosh" name="dosh">
+                                      <option value="select">Select</option>
+                                      <option value="नहीं हैं">नहीं हैं</option>
+                                      <option value="सर्प दोष">सर्प दोष</option>
+                                      <option value="काल सर्प दोष"> काल सर्प दोष</option>
+                                      <option value="राहु दोष">राहु दोष</option>
+                                      <option value="केतु दोष">केतु दोष</option>
+                                      
+                                      <option value="Don't">मालुम नहीं</option>
+                                </select>
+                            </div>
+                          </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label class="control-label">पत्रिका मिलान</label><br>
+                    </div>
+                    <div class="col-md-9">
+                      
+                      <input type="radio" id="male" name="patrika" value="हाॅॅ">
+                      <span for="yes">हाॅॅ</span>
+                      <input type="radio" id="female" name="patrika" value="नहीं">
+                      <span for="no">नहीं</span>
+                    
+                    </div>
+                  </div>
+              </div>                  
+              <button class="btn btn-primary nextBtn btn-lg pull-right mb-4" type="button" style="background-color: orangered;" >Next</button>
+          </div>
+      </div>
+      
+
+      <div class="row setup-content" id="step-3">
+          <div class="col-xs-12">
+              <div class="col-md-12">
+                  <h3> Step 3</h3>
+                  <h3 class="text-center" style="margin-bottom: 50px;">Address Details</h3>
+                  <div class="form-group">
+                    <h3>घर का पता</h3>
+                    
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">रोड</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input maxlength="100" type="text" name='Road' required="required" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">पोस्‍ट</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input  maxlength="100" name='post' type="text" required="required" class="form-control"  />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">तहसील</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input  maxlength="100" name='tehsil' type="text" required="required" class="form-control"  />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">जिला</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input maxlength="100" name='Jila' type="text" required="required" class="form-control"  />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">पिन कोड</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input minlength="6" name='pincode' maxlength="6" type="number" required="required" class="form-control"  />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label class="control-label">राज्‍य</label>
+                      </div>
+                      <div class="col-md-9">
+                        <input maxlength="100" name='rajya' type="text" required="required" class="form-control"  />
+                      </div>
+                    </div>
+              </div>
+              <button class="btn btn-success btn-lg pull-right" type="submit" style="background-color: orangered;">Finish!</button>
+          </div>
+      </div>
+      
+  </form>
+</div>
+</div>
+{% else %}
+    <h6 class=" text-center my-4 section-title h2">Kindly <a href="/login">Login</a> to access this page</h6>
+{% endif %}
+<!-- multi stap form end-->
+
+      <!-- Footer -->
+      <footer class="page-footer ">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left mt-5 more-size">
+      
+          <!-- Grid row -->
+          <div class="row mt-3 more-size">
+      
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+      
+              <!-- Content -->
+              <h6 class="text-uppercase font-weight-bold">नार्मदीय ब्राह्मण समाज </h6>
+              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                consectetur
+                adipisicing elit.</p>
+      
+            </div>
+            <!-- Grid column -->
+      
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+      
+              <!-- Links -->
+              <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>
+                <a href="/">Home</a>
+              </p>
+              <p>
+                <a href="#!">Become an Affi</a>
+              </p>
+              <p>
+                <a href="#!">Shipping Rates</a>
+              </p>
+              <p>
+                <a href="#!">Log Out</a>
+              </p>
+      
+            </div>
+            <!-- Grid column -->
+      
+            
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+      
+              <!-- Links -->
+              <h6 class="text-uppercase font-weight-bold">Contact</h6>
+              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>
+                          <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+              <p>
+                <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+              <p>
+                <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+      
+            </div>
+            <!-- Grid column -->
+      
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+      
+              <!-- Links -->
+              <h6 class="text-uppercase font-weight-bold">Follow </h6>
+              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                    <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="social-icon text-xs-center" target="_blank" href="#">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="devlop">Developed By : TechVerticle.com <br>
+                Contact Us : 7089986702 | 7694969509 | 8871714038 </p>
+      
+            
+      </div>
+          </div>
+          <!-- Grid row -->
+      
+        </div>
+        <!-- Footer Links -->
+      
+        <!-- Copyright -->
+        <div class="footer-copyright text-center">© 2020 Copyright |
+          <a href="#"> narmadiyabrahminsamaj.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
+      
+      <!-- script -->
+
+        <script>
+              $(document).ready(function () {
+
+var navListItems = $('div.setup-panel div a'),
+        allWells = $('.setup-content'),
+        allNextBtn = $('.nextBtn');
+
+allWells.hide();
+
+navListItems.click(function (e) {
+    e.preventDefault();
+    var $target = $($(this).attr('href')),
+            $item = $(this);
+
+    if (!$item.hasClass('disabled')) {
+        navListItems.removeClass('btn-primary').addClass('btn-default');
+        $item.addClass('btn-primary');
+        allWells.hide();
+        $target.show();
+        $target.find('input:eq(0)').focus();
+    }
+});
+
+allNextBtn.click(function(){
+    var curStep = $(this).closest(".setup-content"),
+        curStepBtn = curStep.attr("id"),
+        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+        curInputs = curStep.find("input[type='text'],input[type='url']"),
+        isValid = true;
+
+    $(".form-group").removeClass("has-error");
+    for(var i=0; i<curInputs.length; i++){
+        if (!curInputs[i].validity.valid){
+            isValid = false;
+            $(curInputs[i]).closest(".form-group").addClass("has-error");
+        }
+    }
+
+    if (isValid)
+        nextStepWizard.removeAttr('disabled').trigger('click');
+});
+
+$('div.setup-panel div a.btn-primary').trigger('click');
+});
+
+
+
+function myFunction() {
+  var x = document.getElementById("myDate").required;
+  document.getElementById("demo").innerHTML = x;
+}
+
+        </script>
+
+      <!-- script -->
+      </body>
+      </html>

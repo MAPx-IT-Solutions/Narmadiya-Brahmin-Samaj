@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <title>नार्मदीय ब्राह्मण समाज </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  
+<script
+src="https://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+$("#header").load("header.html"); 
+$("#footer").load("footer.html"); 
+});
+
+
+
+$(document).ready(function() {
+$("#sort").DataTable({
+  columnDefs : [
+{ type : 'date', targets : [3] }
+],  
+});
+});
+
+
+</script> 
+
+<!-- bootstrap files -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<!-- js/css files -->
+
+<link rel="stylesheet" href='{% static "style.css"%}'>
+<link rel="stylesheet" href='{% static "responsive.css"%}'>
+
+<!-- google fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Eczar&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap" rel="stylesheet">
+
+<!-- font-awesome icons -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="headcontainer">
+        <a href="#">नार्मदीय ब्राह्मण <br> समाज</a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light nav-menu">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse more-size" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">मुख्य प्रष्ठ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news">मुख्य समाचार एवं पत्रिकाएं</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutsociety">समाज के बारे मे </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/religious">धार्मिक</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contactus">संपर्क</a>
+            </li>
+          <li class="nav-item dropdown">
+            {% if user.is_authenticated %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{request.user.first_name}} {{request.user.last_name}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="nav-link change" href="/handlelogout">logout</a>
+              
+          </li>
+        </ul>
+          
+        </div>
+            {% else %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+           
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           
+              <a class="nav-link change" href="/login">login</a>
+             
+              <a class="nav-link" href="/register">register</a>
+              
+          </li>
+        </ul>
+          
+        </div>
+        {% endif %}
+      </nav>
+
+
+
+<div class="container">
+  <h5 class="section-title h1 contact">
+    दान-दक्षिणा </h5>
+  <div class="sortbox">
+  <span><i class="fa fa-search sort"></i>
+<input class="inputsearch" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" title="Type in a name">
+</span>
+</div>
+
+<table id="myTable">
+  <tr class="header">
+    <th>दान-दाता का नाम</th>
+    <th>पता</th>
+    <th>मो. नम्बर</th>
+  </tr>
+  {% for i in donation %}
+  <tr>
+    <td>{{i.name}}</td>
+    <td>{{i.address}}</td>
+    <td>{{i.mob}}</td>
+    {% endfor %}
+  </tr>
+</table>
+</div>
+<script>
+  function myFunction() {
+    const input = document.getElementById("myInput");
+    const inputStr = input.value.toUpperCase();
+    document.querySelectorAll('#myTable tr:not(.header)').forEach((tr) => {
+      const anyMatch = [...tr.children]
+        .some(td => td.textContent.toUpperCase().includes(inputStr));
+      if (anyMatch) tr.style.removeProperty('display');
+      else tr.style.display = 'none';
+    });
+  }
+  
+  </script>
+    <!-- Footer -->
+    <footer class="page-footer ">
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5 more-size">
+    
+        <!-- Grid row -->
+        <div class="row mt-3 more-size">
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+    
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">नार्मदीय ब्राह्मण समाज </h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+              consectetur
+              adipisicing elit.</p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a href="/">Home</a>
+            </p>
+            <p>
+              <a href="#!">Become an Affi</a>
+            </p>
+            <p>
+              <a href="#!">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!">Log Out</a>
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+                        <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+            <p>
+              <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Follow </h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                  <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                      <i class="fa fa-facebook"></i>
+                  </a>
+              </li>
+              <li class="list-inline-item">
+                  <a class="social-icon text-xs-center" target="_blank" href="#">
+                      <i class="fa fa-instagram"></i>
+                  </a>
+              </li>
+          </ul>
+          <p class="devlop">Developed By : TechVerticle.com <br>
+              Contact Us : 7089986702 | 7694969509 | 8871714038 </p>
+    
+          
+    </div>
+        </div>
+        <!-- Grid row -->
+    
+      </div>
+      <!-- Footer Links -->
+    
+      <!-- Copyright -->
+      <div class="footer-copyright text-center">© 2020 Copyright |
+        <a href="#"> narmadiyabrahminsamaj.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    
+    
+    
+    </body>
+    </html>
+    
+
+

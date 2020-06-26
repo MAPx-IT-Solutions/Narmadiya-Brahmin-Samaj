@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <title>नार्मदीय ब्राह्मण समाज </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- bootstrap files -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<!-- js/css files -->
+
+<link rel="stylesheet" href='{% static "style.css"%}'>
+<link rel="stylesheet" href='{% static "responsive.css"%}'>
+
+<!-- google fonts -->
+
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Eczar&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap" rel="stylesheet">
+
+<!-- font-awesome icons -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="headcontainer">
+        <a href="#">नार्मदीय ब्राह्मण <br> समाज</a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light nav-menu">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse more-size" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">मुख्य प्रष्ठ <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/news">मुख्य समाचार एवं पत्रिकाएं</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutsociety">समाज के बारे मे </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/religious">धार्मिक</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contactus">संपर्क</a>
+            </li>
+          <li class="nav-item dropdown">
+            {% if user.is_authenticated %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{request.user.first_name}} {{request.user.last_name}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="nav-link change" href="/handlelogout">logout</a>
+              
+          </li>
+        </ul>
+          
+        </div>
+            {% else %}
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+           
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           
+              <a class="nav-link change" href="/login">login</a>
+             
+              <a class="nav-link" href="/register">register</a>
+              
+          </li>
+        </ul>
+          
+        </div>
+        {% endif %}
+      </nav>
+
+
+ <!-- Section Vantagens -->
+ <section id="vantagens">
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-md-12 ">
+          <h5 class="section-title h1">समाज प्रतिभाये</h5>
+          <div class="row row-margin-bottom mt-5">
+              <div class="col-md-6 no-padding lib-item patrika" data-category="view">
+                  <div class="lib-panel">
+                      <div class="row box-shadow w-100 patrikabox">
+                          <div class="col-md-5 image-row">
+                              <img src='{% static "img/abhiruchi.jpg"%}'>         
+                          </div>
+                          <div class="col-md-6 card-text">
+                              <div class="lib-row lib-header text-left pl-5">
+                                  <span class="blue">अभिरुचि - त्रेमासिक पत्रिका
+                                  </span>
+                                  <div class="lib-header-seperator"></div>
+                              </div>
+                              <div class="lib-row lib-desc pl-5">
+                                अभि रुचि खरगोन से प्रकाशित एक त्रेमासिक पत्रिका हे , इसके प्रबंध सम्पादक श्री विनोद उपाध्याय हैं | 
+                               <br>
+                                पता :A -102 आदर्श नगर खरगोन 
+                                MOB 9827231316
+                              </div>
+                              <a href="#" class="btn btn-block btn-social btn-facebook"> 
+                                <i class="fa fa-facebook" ></i>  Facebook Page
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 no-padding lib-item patrika" data-category="view">
+                  <div class="lib-panel">
+                      <div class="row box-shadow w-100 patrikabox">
+                          <div class="col-md-5 image-row">
+                              <img src='{% static "img/ndlok.jpg"%}'>
+                              
+                          </div>
+                          <div class="col-md-6 card-text">
+                              <div class="lib-row lib-header text-left pl-5">
+                                  <span class="blue">नार्मदीय लोक : एक मासिक पत्रिका                                          </span>
+                                  <div class="lib-header-seperator"></div>
+                              </div>
+                              <div class="lib-row lib-desc pl-5">
+                                नार्मदीय लोक सेवा ट्रस्ट द्वारा प्रकाशित यह एक मासिक पत्रिका है | 
+                                <br>
+                                प्रकाशक : नार्मदीय लोक सेवा ट्रस्ट<br>
+                                सम्पादक : श्रीमती किरण साकल्ले <br>
+                                
+                                पता : 160 , क्लर्क कॉलोनी , इंदौर | 
+                                
+                              </div>
+                              <a class="btn btn-block btn-social btn-facebook"> 
+                                <i class="fa fa-facebook" ></i>  Facebook Page
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 no-padding lib-item patrika" data-category="view">
+                  <div class="lib-panel">
+                      <div class="row box-shadow w-100 patrikabox">
+                          <div class="col-md-5 image-row">
+                              <img src='{% static "img/jagat.jpg"%}'>
+                          </div>
+                          <div class="col-md-6 card-text">
+                              <div class="lib-row lib-header text-left pl-5">
+                                  <span class="blue">नार्मदीय जगत : एक मासिक पत्रिका
+                                  </span>
+                                  <div class="lib-header-seperator"></div>
+                              </div>
+                              <div class="lib-row lib-desc pl-5">
+                                नार्मदीय जगत नार्मदीय ब्राह्मण समाज की एक स्थापित और विश्वसनीय सामाजिक पत्रिका है , यह  एक मासिक पत्रिका है | 
+                               <br>
+                                प्रकाशक : नार्मदीय समाज प्रगतिशील समिति <br>
+                                पता : डी 65 , शॉपिंग काम्प्लेक्स ,ए बी रोड़ 
+                                इंदौर 
+                            
+                              </div>
+                              <a class="btn btn-block btn-social btn-facebook"> 
+                                <i class="fa fa-facebook" ></i>  Facebook Page
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 no-padding lib-item patrika" data-category="view">
+                <div class="lib-panel">
+                    <div class="row box-shadow w-100 patrikabox">
+                        <div class="col-md-5 image-row">
+                            <img src='{% static "img/jagat.jpg"%}'>
+                        </div>
+                        <div class="col-md-6 card-text">
+                            <div class="lib-row lib-header text-left pl-5">
+                                <span class="blue">नार्मदीय जगत : एक मासिक पत्रिका
+                                </span>
+                                <div class="lib-header-seperator"></div>
+                            </div>
+                            <div class="lib-row lib-desc pl-5">
+                              नार्मदीय जगत नार्मदीय ब्राह्मण समाज की एक स्थापित और विश्वसनीय सामाजिक पत्रिका है , यह  एक मासिक पत्रिका है | 
+                             <br>
+                              प्रकाशक : नार्मदीय समाज प्रगतिशील समिति <br>
+                              पता : डी 65 , शॉपिंग काम्प्लेक्स ,ए बी रोड़ 
+                              इंदौर 
+                          
+                            </div>
+                            <a class="btn btn-block btn-social btn-facebook"> 
+                              <i class="fa fa-facebook" ></i>  Facebook Page
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+
+
+<button class="accordion">समाज मे हुआ कला का सम्मान</button>
+<div class="panel">
+    <div class="row part">
+        <div class="col-md-4">
+          <span class="caption"><img src='{% static "img/somnath2.jpg"%}' width="400px" height="200px"> सोमनाथ ज्योतिर्लींग सौरास्ट्र, गुजरात</span>
+          
+            </div>
+            <div class="col-md-8">
+              <p>हमारे पूर्वज कालांतर में द्रविड( तमिलनाडु) प्रांत में रहते थे पश्यात वे सौराष्ट्र गुजरात) आ गए ,नर्मदिया ब्राह्मणों ने भी अनूदित नारामदेव सोमनाथ मंदिर के पुजारियों के वंशज हैं, 
+                जिन्हें गुजरात से मध्यप्रदेश में स्थानांतरित करने के लिए मजबूर किया गया था, वे नर्मदा नदी के किनारे बसे हैं। 
+                उनका प्रवासन क्रूर इस्लामी आक्रमणकारी महमूद गजनी द्वारा सोमनाथ मंदिर के किलों और अपवित्रता के कारण है।
+                </p>
+              </div>
+    </div>      
+</div>
+
+<button class="accordion">प्रतिभाशाली छात्र-छात्राए</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Section 3</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+    </script>
+          <!-- Footer -->
+<footer class="page-footer ">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5 more-size">
+
+    <!-- Grid row -->
+    <div class="row mt-3 more-size">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold">नार्मदीय ब्राह्मण समाज </h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+          consectetur
+          adipisicing elit.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <a href="/">Home</a>
+        </p>
+        <p>
+          <a href="#!">Become an Affi</a>
+        </p>
+        <p>
+          <a href="#!">Shipping Rates</a>
+        </p>
+        <p>
+          <a href="#!">Log Out</a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+      
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+                    <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+        <p>
+          <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+        <p>
+          <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Follow </h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <ul class="list-inline">
+          <li class="list-inline-item">
+              <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                  <i class="fa fa-facebook"></i>
+              </a>
+          </li>
+          <li class="list-inline-item">
+              <a class="social-icon text-xs-center" target="_blank" href="#">
+                  <i class="fa fa-instagram"></i>
+              </a>
+          </li>
+      </ul>
+      <p class="devlop">Developed By : TechVerticle.com <br>
+          Contact Us : 7089986702 | 7694969509 | 8871714038 </p>
+
+      
+</div>
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center">© 2020 Copyright |
+    <a href="#"> narmadiyabrahminsamaj.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+
+</body>
+</html>

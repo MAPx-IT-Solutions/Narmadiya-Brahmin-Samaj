@@ -1,0 +1,91 @@
+<html>
+   <head>
+     {% load static %}
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <!------ Include the above in your HEAD tag ---------->
+   
+   <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+         <link rel="stylesheet" href='{% static "form.css"%}'> 
+         <style>
+            .pass_show{position: relative} 
+            .pass_show .ptxt { 
+                position: absolute; 
+                top: 50%; 
+                right: 10px; 
+                z-index: 1; 
+                color: #f36c01; 
+                margin-top: -10px; 
+                cursor: pointer; 
+                transition: .3s ease all; 
+            } 
+            
+.pass_show .ptxt:hover{color: #333333;} 
+         </style>
+   </head>
+<body>
+    <div class="container">
+        <div class="row">
+			<div class="col-md-6 mx-auto">
+			<div id="first">
+				<div class="myform form ">
+					 <div class="logo mb-3">
+                        
+						 <div class="col-md-12 text-center">
+                            <a href="/" style="text-align: right;"><button class="btn close"><i class="fa fa-close"></i></button></a>
+							<h1>Change Password</h1>
+						 </div>
+					</div>
+                   <form  method="post" name="Change Password">{% csrf_token %}
+                    
+                    
+                     <label>Current Password</label>
+                     <div class="form-group pass_show"> 
+                         <input id="id_old_password" name="old_password" type="password" value="" class="form-control" placeholder="Current Password"> 
+                     </div> 
+                    <label>New Password</label>
+                     <div class="form-group pass_show"> 
+                         <input type="password" name="new_password1" id="id_new_password1" value="" class="form-control" placeholder="New Password"> 
+                     </div> 
+                    <label>Confirm Password</label>
+                     <div class="form-group pass_show"> 
+                         <input name="new_password2" id="id_new_password2" type="password" value="" class="form-control" placeholder="Confirm Password"> 
+                     </div> 
+
+
+                        
+                        <div class="col-md-12 text-center ">
+                           <button type="submit"  value="Change my password" class=" btn btn-block mybtn btn-primary tx-tfm">Submit</button>
+                        </div>
+                           
+                    </form>
+                 
+				</div>
+			</div>
+         </div>
+			  
+		</div>
+      </div>   
+      
+      
+      <script>
+            
+$(document).ready(function(){
+$('.pass_show').append('<span class="ptxt">Show</span>');  
+});
+  
+
+$(document).on('click','.pass_show .ptxt', function(){ 
+
+$(this).text($(this).text() == "Show" ? "Hide" : "Show"); 
+
+$(this).prev().attr('type', function(index, attr){return attr == 'password' ? 'text' : 'password'; }); 
+
+});
+      </script>
+        
+</body>
+</html>
